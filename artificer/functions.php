@@ -40,7 +40,18 @@ if ( is_woocommerce_activated() ) {
 /* You can add custom functions below */
 /*-----------------------------------------------------------------------------------*/
 
+/*function fix_woo_var_cart()
+{
+  wp_enqueue_script('add-to-cart-variation', '/var/www/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+}
+add_action('wp_enqueue_scripts','fix_woo_var_cart');
 
+add_action('wp_head','add_to_cart_script');
+function add_to_cart_script(){
+  if(is_product()){
+    wp_enqueue_script('wc-add-to-cart-variation');
+  }
+}*/
 
 
 

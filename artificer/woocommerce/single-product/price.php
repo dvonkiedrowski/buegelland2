@@ -14,7 +14,7 @@ global $post, $product;
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
 	<h2 class="price">
-		Preis pro Stück: <strong><?php echo $product->get_price_html(); ?></strong>
+		Preis: <strong><?php echo $product->get_price_html(); ?></strong>
 	</h2>
 
 	<meta itemprop="price" content="<?php echo $product->get_price(); ?>" />

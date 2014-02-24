@@ -87,23 +87,53 @@
 			 * @hooked woocommerce_template_single_meta - 40
 			 * @hooked woocommerce_template_single_sharing - 50
 			 */
-			//do_action( 'woocommerce_single_product_summary' );
-			//woocommerce_template_single_excerpt();
-			woocommerce_template_single_title();
-			woocommerce_template_single_price();
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+			
 			woocommerce_template_single_excerpt();
-			woocommerce_template_single_add_to_cart();
-			woocommerce_template_single_meta();
-			woocommerce_template_single_sharing();
 		?>
 			
 		<div class="product_options">
-			<?php
-				/*woocommerce_template_single_price();
+			<?php				
+				woocommerce_template_single_price();
 				woocommerce_template_single_add_to_cart();
+				/*do_action( 'woocommerce_single_product_summary' );
 				woocommerce_template_single_rating();
-				woocommerce_template_single_sharing();	*/			
+				woocommerce_template_single_sharing();*/				
 			?>
+			
+			<p>
+				<?php
+					global $product;
+					echo $product->get_tax_class();
+					$_tax = new WC_Tax();//looking for appropriate vat for specific product
+					$rates = array_shift($_tax->get_rates( $product->get_tax_class() ));
+					if (isset($rates['rate'])) {	//vat found
+						if ($rates['rate'] == 0) {	//if 0% vat
+							$prima_tax_rate="mehrwertsteuerbefreit";
+						} else {
+							$prima_tax_rate="inkl. ".round($rates['rate'])."% MwSt. ";
+						}
+					} else {//FailSafe: just in case
+						$prima_tax_rate="failsafe";
+					}
+					echo $prima_tax_rate;
+					echo '</br>';				
+					echo 'zzgl. <a href="http://buegelland.de/?p=22">Versand</a> <br/>';
+					
+					// Lieferzeit 
+					if( class_exists( 'WGM_Template' ) ) {
+						echo WGM_Template::add_template_loop_shop();
+					}
+
+					echo $product->_lieferzeit;
+				?>
+			</p>
+			
 		</div>
 
 	</div><!-- .summary -->

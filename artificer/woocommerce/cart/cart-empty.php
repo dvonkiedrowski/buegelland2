@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wc_print_notices();
 
 ?>
+<h1 class="page_title"> <?php the_title(); ?> </h1>
 
 <p class="cart-empty"><?php _e( 'Your cart is currently empty.', 'woocommerce' ) ?></p>
 

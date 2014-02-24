@@ -22,9 +22,14 @@
 
 <link href="/wp-content/themes/classicorange/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/wp-content/themes/classicorange/css/nav-menus.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="/wp-content/themes/classicorange/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/classicorange/js/stuHover.js"></script>
 <script type="text/javascript" src="/wp-content/themes/classicorange/js/jquery.flow.1.2.auto.js"></script>
+<?php
+	wp_head();
+	//woo_head();
+?>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#myController").jFlow({
@@ -51,7 +56,7 @@ $(document).ready(function(){
 	
 		<div id="head">
 			<h1 class="logo">Buegelland</h1>
-			<div class="basket"><a href="<?php echo $woocommerce->cart->get_cart_url(); ?>"><img src="/wp-content/themes/classicorange/images/shopping-basket_bg.png" text="Basket" /><span>Einkaufswagen</span></a>
+			<div class="basket"><a href="<?php echo $woocommerce->cart->get_cart_url(); ?>"><img src="/wp-content/themes/classicorange/images/shopping-basket_bg.png" text="Basket" /><span>Warenkorb</span></a>
 				<p>Anzahl: <strong><?php echo $woocommerce->cart->cart_contents_count; ?> </strong>
 					<span> <?php echo $woocommerce->cart->get_cart_total(); ?></span></p>
 			</div>
