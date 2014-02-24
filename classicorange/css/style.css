@@ -916,7 +916,6 @@ a.silver_btn, a.silver_btn:hover { /* this style is for a tags*/
 }
 .basket_list .price {
 	display:block;
-	float:left;
 	width:205px;
 	color: #898989;
 	padding: 5px;
@@ -930,7 +929,7 @@ input.silver_btn { /* this style is for input elements*/
 	color: #666666;
 	border: 1px solid #d7d7d7;
 	background: #fff url(../images/silver-btn_bg.gif) repeat-x left bottom;
-	padding: 2px 4px;
+	padding: 5px;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -941,12 +940,17 @@ input.silver_btn { /* this style is for input elements*/
 	text-align:right;
 }
 .basket_list label {
+	position: relative;
+	left: 40px;
+	bottom: 2px;
 	float: left;
 	color: #b2b2b2;
 	line-height: 20px;
 }
 .basket_list .product_img{
 	float:left;
+	width: 148px;
+	height: 132px;
 }
 .basket_list .product_img img {
 	margin-right:16px;
@@ -965,9 +969,6 @@ input.silver_btn { /* this style is for input elements*/
 .basket_list .update_btn {
 	float: left;
 }
-.basket_list input.quantity, .basket_list .update_btn {
-	margin-left: 10px;
-}
 .remove_btn{
 	display:block;
 	float:right;
@@ -978,6 +979,16 @@ input.silver_btn { /* this style is for input elements*/
 	display:block;
 	margin-top:40px;
 	float:right;
+}
+
+.cart_wrapper {
+	width: 390px;
+	float: left;
+}
+
+.variation {
+	padding-left: 10px;
+	width: 290px;
 }
 
 /* Hide Text From Element */

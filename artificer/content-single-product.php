@@ -71,9 +71,11 @@
 		
 	<div class="product_information"> 			
 
-		<div class="product_status in_stock">
-			<span><?php global $product; echo $product->is_in_stock() ? 'verfügbar' : 'ausverkauft'; ?></span>
-		</div>
+		<?php
+			global $product;
+			$in_stock = $product->is_in_stock();
+			printf('<div class="%s"><span>%s</span></div>', $in_stock ? 'product_status in_stock' : 'product_status not_available', $in_stock ? 'verfügbar' : 'ausverkauft');
+		?>
 		<div class="row end">&nbsp;</div>
 		
 		<?php
