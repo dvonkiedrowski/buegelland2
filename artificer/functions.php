@@ -40,23 +40,34 @@ if ( is_woocommerce_activated() ) {
 /* You can add custom functions below */
 /*-----------------------------------------------------------------------------------*/
 
-/*function fix_woo_var_cart()
-{
-  wp_enqueue_script('add-to-cart-variation', '/var/www/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
-}
-add_action('wp_enqueue_scripts','fix_woo_var_cart');
+/*add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
-add_action('wp_head','add_to_cart_script');
-function add_to_cart_script(){
-  if(is_product()){
-    wp_enqueue_script('wc-add-to-cart-variation');
-  }
+function custom_override_checkout_fields( $fields ) {
+     $fields['billing']['billing_address_2']['label'] = 'Adresszusatz';
+     $fields['shipping']['shipping_address_2']['label'] = 'Adresszusatz';
+     return $fields;
 }*/
 
-
-
-
-
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
+add_filter( 'woocommerce_shipping_fields', 'wc_addr2_label', 10, 1 );
+add_filter( 'woocommerce_checkout_process', 'send_order_details', 10, 1 );
+ 
+function send_order_details ( $order ) {
+	$order_details = "Test!";
+	
+	echo "<script text='type/javascript'>alert('{$order_details}')</script>";
+}
+ 
+function wc_addr2_label ( $address_fields ) {
+	$address_fields['shipping_address_2']['label'] = 'Adresszusatz';
+	return $address_fields;
+}
+ 
+function wc_npr_filter_phone( $address_fields ) {
+	$address_fields['billing_address_2']['label'] = 'Adresszusatz';
+	$address_fields['billing_phone']['required'] = false;
+	return $address_fields;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Don't add any code below here or the sky will fall down */

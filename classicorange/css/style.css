@@ -585,13 +585,13 @@ ul.page_nav li.skip_pages {
 }
 /* Product Status In Stock / Not Available */
 .product_status {
-	/*float: left;*/
 	line-height: 21px;
 }
 .in_stock span{
 	float: left;
-	margin-right:100px;
+	/*margin-right:100px;*/
 	display:block;
+	/*width:50px;*/
 	background:#F7941D url("../images/product_status_orange.gif") repeat-y left top;
 	color: #fff;
 	font-weight: bold;
@@ -599,9 +599,9 @@ ul.page_nav li.skip_pages {
 }
  .not_available span {
 	float: left;
-	margin-right:100px;
+	/*margin-right:100px;*/
 	display:block;
-	width:80px;
+	/*width:80px;*/
 	background: #ed1c24 url(../images/product_status_red.gif) repeat-y left top;
 	color: #fff;
 	font-weight: bold;
@@ -703,8 +703,8 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
 .help_icon p {
 	padding: 14px 0 0;
 }
-a.silver_btn, a.silver_btn:hover { /* this style is for a tags*/
-	float: right;
+a.silver_btn, a.silver_btn:hover, input.button { /* this style is for a tags*/
+	/*float: right;*/
 	font-weight: bold;
 	font-size: 10px;
 	color: #666666;
@@ -916,6 +916,7 @@ a.silver_btn, a.silver_btn:hover { /* this style is for a tags*/
 }
 .basket_list .price {
 	display:block;
+	float:left;
 	width:205px;
 	color: #898989;
 	padding: 5px;
@@ -929,7 +930,7 @@ input.silver_btn { /* this style is for input elements*/
 	color: #666666;
 	border: 1px solid #d7d7d7;
 	background: #fff url(../images/silver-btn_bg.gif) repeat-x left bottom;
-	padding: 5px;
+	padding: 2px 4px;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -940,17 +941,12 @@ input.silver_btn { /* this style is for input elements*/
 	text-align:right;
 }
 .basket_list label {
-	position: relative;
-	left: 40px;
-	bottom: 2px;
 	float: left;
 	color: #b2b2b2;
 	line-height: 20px;
 }
 .basket_list .product_img{
 	float:left;
-	width: 148px;
-	height: 132px;
 }
 .basket_list .product_img img {
 	margin-right:16px;
@@ -969,6 +965,9 @@ input.silver_btn { /* this style is for input elements*/
 .basket_list .update_btn {
 	float: left;
 }
+.basket_list input.quantity, .basket_list .update_btn {
+	margin-left: 10px;
+}
 .remove_btn{
 	display:block;
 	float:right;
@@ -981,14 +980,154 @@ input.silver_btn { /* this style is for input elements*/
 	float:right;
 }
 
-.cart_wrapper {
-	width: 390px;
-	float: left;
+/* custom myaccount table */
+table.my_account td {
+	text-align: right;
+	padding: 2px;
 }
 
-.variation {
-	padding-left: 10px;
-	width: 290px;
+table.my_account .input-text {
+	width: 144px;
+}
+
+table.my_account .button {
+	width: 148px;
+}
+
+div.woocommerce label {
+	width: 275px;
+	text-align: right;
+	display: inline-block;
+}
+
+p.form-row {
+	padding: 2px 0;
+}
+
+div.woocommerce .input-text {
+	margin-left: 2px;
+	width: 144px;
+}
+
+div.woocommerce .button {
+	/*width: 148px;
+	margin-left: -2px;*/
+}
+
+p.myaccount_user {
+	width: 597px;
+	padding-bottom: 5px;
+}
+
+div.col-1 { 
+	width: 296px; 
+	float: left;
+	padding-right: 2px;
+}
+
+div.col-2 { 
+	width: 298px; 
+	margin-left: 298px;
+}
+
+#customer_details label {
+	width: 200px;
+}
+
+#customer_details label.checkbox {
+	width: 275px;
+}
+
+#customer_details .col-1 {
+	width: 372px; 
+	float: left;
+	padding: 0 0 20px 0;
+}
+
+#customer_details .col-2 {
+	width: 372px; 
+	float: right;
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+
+#customer_details .woocommerce-shipping-fields {
+	text-align: right;
+}
+
+#order_review {
+	width: 372px;
+}
+
+p.myaccount_address {
+	padding-bottom: 5px;
+}
+
+div.cart_totals {
+	padding-top: 20px;
+}
+
+div.cart-collaterals small {
+	font-size: 9px;
+}
+
+div.cart_totals th {
+	padding-right: 5px;
+}
+
+a.checkout-button {
+	font-size: 15px;
+}
+
+div.second-checkout-button-container {
+	margin-top: 0;
+}
+
+div.clear {
+	clear: both;
+}
+
+.wgm-break {
+ padding-bottom: 20px;
+}
+
+.cart_item_left_col {
+	float: left;
+	width: 181px;
+	padding-right: 5px; 
+}
+
+.cart_item_middle_col {
+	width: 181px;
+	float: left;
+	padding-top: 16px;
+}
+
+#customer_login .col-1 {
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+#customer_login .col-2 {
+	width: 100%;
+	margin: 0;
+}
+
+#customer_login label {
+	width: 154px;
+}
+
+#customer_login .button, #customer_login  label.inline {
+	margin-left: 162px;
+	text-align: left;
+}
+
+.lost_reset_password {
+	width: 587px;
+}
+
+.lost_reset_password .button {
+	margin-left: 280px;
 }
 
 /* Hide Text From Element */

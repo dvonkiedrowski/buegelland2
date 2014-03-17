@@ -45,12 +45,20 @@
 		<ul class="clearfix">
 			<?php
 				$my_pages = wp_list_pages('echo=0&title_li=&include=28,25,23,26,21,24');
-				$var1 = '</li> <li';
-				$var2 = '</li>|<li';
+				$var1 = '><a';
+				$var2 = '>| <a';
 				$my_pages = str_replace($var1, $var2, $my_pages);
 				echo $my_pages;
 			?>
 		</ul>
+		
+		<script type="text/javascript">
+			$('.page_item').each(function() {
+				if(this.className.indexOf("28") != -1) {
+					this.innerHTML = this.innerHTML.substring(1);
+				}
+			});
+		</script>
 	
 		<!--
 		<div id="copyright" class="col-left">

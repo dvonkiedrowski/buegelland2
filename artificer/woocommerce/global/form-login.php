@@ -18,14 +18,25 @@ if ( is_user_logged_in() )
 
 	<?php if ( $message ) echo wpautop( wptexturize( $message ) ); ?>
 
-	<p class="form-row form-row-first">
+	<table>
+		<tr>
+			<td><?php _e( 'Username or email', 'woocommerce' ); ?><span class="required">*</span></td>
+			<td><input type="text" class="input-text" name="username" id="username" /></td>
+		</tr>
+		<tr>
+			<td><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></td>
+			<td><input class="input-text" type="password" name="password" id="password" /></td>
+		</tr>
+	</table>
+	
+	<!--<p class="form-row form-row-first">
 		<label for="username"><?php _e( 'Username or email', 'woocommerce' ); ?> <span class="required">*</span></label>
 		<input type="text" class="input-text" name="username" id="username" />
 	</p>
 	<p class="form-row form-row-last">
 		<label for="password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 		<input class="input-text" type="password" name="password" id="password" />
-	</p>
+	</p>-->
 	<div class="clear"></div>
 
 	<?php do_action( 'woocommerce_login_form' ); ?>

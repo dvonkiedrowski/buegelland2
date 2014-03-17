@@ -42,31 +42,36 @@ do_action( 'woocommerce_before_cart' ); ?>
 					?>
 					
 					<div class="cart_wrapper">
-						<?php
-							if ( ! $_product->is_visible() )
-								echo sprintf('<h2><a href="%s">%s</a></h2>', $_product->get_permalink(), $_product->get_title() );
-							else
-								echo sprintf('<h2><a href="%s">%s</a></h2>', $_product->get_permalink(), $_product->get_title() );
-
-							// Meta data
-							echo WC()->cart->get_item_data( $cart_item );
-
-							// Backorder notification
-							if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
-								echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
-						?>
-
-						<span class="price">
+						<div class="cart_item_left_col">
 							<?php
-								printf('Preis: <strong>%s</strong>', WC()->cart->get_product_price( $_product ));
+								if ( ! $_product->is_visible() )
+									echo sprintf('<h2><a href="%s">%s</a></h2>', $_product->get_permalink(), $_product->get_title() );
+								else
+									echo sprintf('<h2><a href="%s">%s</a></h2>', $_product->get_permalink(), $_product->get_title() );
 							?>
-						</span>
+							
+							<span class="price">
+								<?php
+									printf('Preis: <strong>%s</strong>', WC()->cart->get_product_price( $_product ));
+								?>
+							</span>
 						
-						<?php 
-							$in_stock = $_product->is_in_stock();
-							printf('<span class="%s"><span>%s</span></span>', $in_stock ? 'product_status in_stock' : 'product_status not_available', $in_stock ? 'verfügbar' : 'ausverkauft'); 
-						?>						
+							<?php 
+								$in_stock = $_product->is_in_stock();
+								printf('<span class="%s"><span style="margin-left: 5px;">%s</span></span>', $in_stock ? 'product_status in_stock' : 'product_status not_available', $in_stock ? 'verfügbar' : 'ausverkauft'); 
+							?>	
+						</div>
+						
+						<div class="cart_item_middle_col">
+							<?php
+								// Meta data
+								echo WC()->cart->get_item_data( $cart_item );
 
+								// Backorder notification
+								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
+									echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
+							?>
+						</div>											
 					</div>
 						
 					<div class="quantity_options clearfix">
@@ -97,6 +102,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 		do_action( 'woocommerce_cart_contents' );
 		?>
+		
 		<tr>
 			<td colspan="6" class="actions">
 
@@ -110,7 +116,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					</div>
 				<?php } ?>
 
-				<input type="submit" class="button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> <input type="submit" class="checkout-button button alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
+				<input type="submit" class="silver_btn" style="float: right;" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> <input type="submit" class="checkout-button button alt wc-forward" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
 
 				<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 
